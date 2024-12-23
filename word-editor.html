@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="description" content="A Microsoft Word-like online document editor with advanced text editing, formatting, table and image insertion, and the ability to save documents as .doc files. Accessible on both desktop and mobile devices.">
+    <meta name="keywords" content="Online Word Editor, Document Editor, Microsoft Word Alternative, Text Editor, Rich Text Editor, Save as Word Document, Mobile-Friendly Word Editor, Free Word Processor">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Word-Like Document Editor - Edit & Save Documents">
+    <meta property="og:description" content="Edit, style, and format text like Microsoft Word. Insert tables, images, and save documents as .doc files, all from your browser.">
+    <meta property="og:type" content="website">
+ <title>Word-Like Document Editor | Edit & Save Documents Online</title>
+    <link href="https://cdn.quilljs.com/1.3.7/quill.snow.css" rel="stylesheet">
+    
+     <script src='//niphaumeenses.net/vignette.min.js' data-zone='8555048' data-sdk='show_8555048'></script>
+     
+    <style>
+        /* General Page Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9fafc;
+        }
+
+        /* Toolbar Styling */
+        #toolbar {
+            background-color: #ffffff;
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        /* Editor Styling */
+        #editor-container {
+            height: 60vh;
+            border: 1px solid #ddd;
+            margin: 10px auto;
+            max-width: 90%;
+            background-color: #ffffff;
+        }
+
+        /* Save Button */
+        .save-btn {
+            margin: 10px auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .save-btn button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .save-btn button:hover {
+            background-color: #45a049;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #editor-container {
+                height: 70vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">Word Editor</h2>
+    <!-- Toolbar for Text Styling -->
+    <div id="toolbar">
+        <select class="ql-font"></select>
+        <select class="ql-size"></select>
+        <button class="ql-bold"></button>
+        <button class="ql-italic"></button>
+        <button class="ql-underline"></button>
+        <select class="ql-color"></select>
+        <select class="ql-background"></select>
+        <button class="ql-align" value=""></button>
+        <button class="ql-align" value="center"></button>
+        <button class="ql-align" value="right"></button>
+        <button class="ql-align" value="justify"></button>
+        <button class="ql-list" value="ordered"></button>
+        <button class="ql-list" value="bullet"></button>
+        <button class="ql-indent" value="-1"></button>
+        <button class="ql-indent" value="+1"></button>
+        <button class="ql-link"></button>
+        <button class="ql-image"></button>
+        <button class="ql-video"></button>
+        <button class="ql-table"></button>
+        <button class="ql-clean"></button>
+    </div>
+
+    <!-- Editor Container -->
+    <div id="editor-container"></div>
+
+    <!-- Save Button -->
+    <div class="save-btn">
+        <button onclick="saveDocument()">Save as Word</button>
+    </div>
+
+    <!-- Quill.js Library -->
+    <script src="https://cdn.quilljs.com/1.3.7/quill.js"></script>
+    <script>
+        // Initialize Quill Editor
+        const quill = new Quill('#editor-container', {
+            modules: {
+                toolbar: '#toolbar'
+            },
+            theme: 'snow',
+            placeholder: 'Start typing here...'
+        });
+
+        // Save Document Function
+        function saveDocument() {
+            const content = quill.root.innerHTML;
+            const header = `
+                <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+                <head><meta charset="utf-8"><title>Document</title></head>
+                <body>${content}</body>
+                </html>
+            `;
+            const blob = new Blob([header], { type: 'application/msword' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'document.doc';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+    
+    <script>
+        // Function to display the ad
+        function showAd() {
+            if (typeof show_8555048 === 'function') {
+                show_8555048().catch((error) => {
+                    console.error('Failed to show ad:', error);
+                });
+            } else {
+                console.error('Ad function is not available. Ensure the script is loaded correctly.');
+            }
+        }
+
+        // Show ad every 15 seconds
+        setInterval(showAd, 15000);
+
+        // Show an ad immediately on page load
+        window.onload = showAd;
+    </script>
+    
+    <script type='text/javascript' src='//slushhelmetmirth.com/8f/37/0f/8f370f68d61188fd982021f8f5999e68.js'></script>
+</body>
+</html>
